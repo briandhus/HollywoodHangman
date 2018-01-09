@@ -17,12 +17,19 @@ for (var i = 0; i < randomTitle.length; i++) {
 		renderedString += "_";
 	}	
 }
-function displayRenderedString() {
-	var html = '<p>' + renderedString + '</p>';
-	document.querySelector('#movieTitle').innerHTML = html;
-}
 
-displayRenderedString();
+// function displayRenderedString() {
+// 	var html = '<p>' + renderedString + '</p>';
+// 	document.querySelector('#movieTitle').innerHTML = html;
+// }
+
+// displayRenderedString();
 console.log(renderedString);
 
 // var userOption = {}
+
+// capture user guess
+document.onkeyup = function() {
+	var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+	console.log(userGuess);
+}
