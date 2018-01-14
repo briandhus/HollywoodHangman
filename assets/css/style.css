@@ -1,17 +1,30 @@
+
+
 body {
-	background: black url('../images/hollywood.jpeg') center;
+	margin-top: -130px;
+	background-color: #28065b;
+}
+
+.container {
+	background: black url('../images/hollywood.jpeg') center no-repeat;
 }
 
 h2 {
 	text-align: center;
-	font-size: 140px;
+	font-size: 120px;
 	color: #eaf0ff;
 	text-shadow: 2px 2px #178200;
-	padding-top: 140px;
-	padding-bottom: 40px;
+	padding-top: 360px;
+	padding-bottom: 10px;
+	margin-top: 40px;
 }
 
-.play-area {
-	background-color: green;
-	padding: 0px -1px 140px 40px;
+.panel, .panel-body {
+	opacity: 0.8;
+}
+
+
+h4 {
+	color: #178200;
+	letter-spacing: 3px;
 }

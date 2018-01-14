@@ -4,6 +4,7 @@ var renderedString = "";
 var wins = 0;
 var losses = 0;
 var ties = 0;
+var guessedLetters = [];
 
 // Choose a random title
 var randomTitle = titles[Math.floor(Math.random() * titles.length)];
@@ -18,15 +19,18 @@ for (var i = 0; i < randomTitle.length; i++) {
 	}	
 }
 
-// function displayRenderedString() {
-// 	var html = '<p>' + renderedString + '</p>';
-// 	document.querySelector('#movieTitle').innerHTML = html;
-// }
+// rendered title displays on screen
+window.onload = function displayRenderedString() {
+	var html = '<p>' + renderedString + '</p>';
+	document.getElementById('movieTitle').innerHTML = html;
+}
 
 // displayRenderedString();
 console.log(renderedString);
 
-// var userOption = {}
+// letter bank
+var letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
+    "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
 // capture user guess
 document.onkeyup = function() {
