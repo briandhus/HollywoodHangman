@@ -18,13 +18,12 @@ function startGame() {
 	randomTitle = titles[Math.floor(Math.random() * titles.length)];
 	correctLetters = randomTitle.split("");
 	titleLength = correctLetters.length;
-
+	
 	// reset
 	lives = 7;
 	wrongLetters = [];
 	correctLetters = [];
-	
-	// computer renders length of title in underscores
+
 	function displayRenderedTitle() {
 		for (var i = 0; i < randomTitle.length; i++) {
 			if (randomTitle[i] === " ") {
@@ -48,24 +47,31 @@ function startGame() {
 	console.log(randomTitle);
 	console.log(correctLetters);
 	console.log(titleLength);
-}    
+	   
+} 
 
 startGame();
 
 // capture user guess
-document.onkeyup = function() {
+document.onkeyup = function(event) {
 	var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
 	console.log(userGuess);
 
 	if (randomTitle.indexOf(userGuess) === -1 && letters.indexOf(userGuess) >= 0 && wrongLetters.indexOf(userGuess) === - 1) {
 		wrongLetters.push(userGuess);
+		lives --;
 
 		var displayWrongLetters = document.getElementById('wrongLetters');
 		displayWrongLetters.innerHTML = wrongLetters.join(', ').toUpperCase();
+
+		var displayLivesCount = document.getElementById('remainingGuesses');
+		displayLivesCount.innerHTML = lives;
 	}
 
 	if (randomTitle.indexOf(userGuess) >= 0 && randomTitle.indexOf(userGuess) < randomTitle.length && correctLetters.indexOf(userGuess) === -1) {
 		correctLetters.push(userGuess);
+
+		document.getElementById('movieTitle').innerHTML = correctLetters.join(' ').toUpperCase();
 
 		var displayCorrectLetters = document.getElementById('movieTitle');
 		displayCorrectLetters.innerHTML = correctLetters.join(' ').toUpperCase();
